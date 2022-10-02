@@ -64,15 +64,22 @@ const mostrarPeli = async () => {
                             <span class='date'>${data.release_date} ${pais}</span><div class='genero-duration'>${generos}<span>${horas}h ${minutos}m</span></div>
                         </div>
                     </header>
-                    <section class='contenedor-porcentaje2'>
+                    <section class='seccion-porcentaje2'>
                     <div class='porcentaje2'>
 				              <svg>
 				                <circle cx='28' cy='28' r='30'  style="stroke:${fondo}"></circle>
-				                <circle cx='28' cy='28' r='30' style="stroke-dashoffset:calc(140 - (140 * ${porcentaje}) / 100); stroke:${color}"></circle>
+				                <circle cx='28' cy='28' r='30' style="stroke-dashoffset:calc(190 - (190 * ${porcentaje}) / 100); stroke:${color}"></circle>
 				              </svg>
 				              <h4 class='number'>${porcentaje}<span>%</span></h4>
 				            </div>
                     <h3>Puntuación <br> de <br> usuario</h3>
+                    </section>
+                    <section class='seccion-resumen'>
+                    <h3>Resumen</h3>
+                    <p>${data.overview}</p>
+                    <article id='creditos'>
+                    
+                    </div>
                     </section>
                 </div>
             </article>
@@ -87,6 +94,48 @@ const mostrarPeli = async () => {
 };
 
 mostrarPeli();
+
+
+const reparto= async()=>{
+  try {
+    await fetch(`
+    https://api.themoviedb.org/3/movie/${id_mov}/credits?api_key=25833d6472d5e0edb18565d7961e3cba&language=es-MX`)
+    .then(res=>res.json())
+    .then(reparto=>{
+
+      let creditos=``
+      console.log(reparto)
+    reparto.crew.forEach(data=>{
+      
+      if(data.job==='Director'||data.job==='Novel'||data.job==='Writer'||data.job==='Screenplay'){
+        creditos+=`
+        <div class='creditos-personas'>
+        <h3>${data.name}</h3>
+        <p>${data.job}</p>
+        </div>`
+      }
+    })
+
+
+      document.getElementById('creditos').innerHTML=creditos
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+reparto()
+
+
+
+
+
+
+
+
+
+
+
 
 
 // VIDEOS
@@ -158,3 +207,5 @@ const mostrarVideos=async()=>{
 }
 
 mostrarVideos()
+
+
