@@ -10,6 +10,7 @@ const mostrarPeli = async () => {
         let generos = "";
 
         data.genres.forEach((genero, index) => {
+
           if (data.genres.length - 1 === index) {
             generos += `<span class='generos'> ${genero.name} </span>`;
           } else {
@@ -21,6 +22,21 @@ const mostrarPeli = async () => {
         let horas = Math.floor(tiempo / 60);
         let minutos = tiempo % 60;
         let pais=data.production_countries[0]?`<span>(${data.production_countries[0].iso_3166_1})</span>`:''
+
+        let porcentaje=(data.vote_average).toFixed(1)[0]+(data.vote_average).toFixed(1)[2]
+        let color=''
+				let fondo=''
+				
+				if(porcentaje>=70){
+					color='#2ed60c'
+					fondo='#87fa7f'
+				}else if(porcentaje<70&&porcentaje>=50){
+					color='#d6740c'
+					fondo='#fab27f'
+				}else if(porcentaje<50){
+					color='#d6130c'
+					fondo='#fa7f7f'
+				}
 
         let portadaImg=''
 
@@ -44,10 +60,20 @@ const mostrarPeli = async () => {
                 <div class='container-description'>
                     <header>
                         <h1>${data.title} (${data.release_date[0]}${data.release_date[1]}${data.release_date[2]}${data.release_date[3]})</h1><span></span>
-                        <div>
-                            <span>${data.release_date}</span>${pais}${generos}<span>${horas}h ${minutos}m</span>
+                        <div class='date-genero'>
+                            <span class='date'>${data.release_date} ${pais}</span><div class='genero-duration'>${generos}<span>${horas}h ${minutos}m</span></div>
                         </div>
                     </header>
+                    <section class='contenedor-porcentaje2'>
+                    <div class='porcentaje2'>
+				              <svg>
+				                <circle cx='28' cy='28' r='30'  style="stroke:${fondo}"></circle>
+				                <circle cx='28' cy='28' r='30' style="stroke-dashoffset:calc(140 - (140 * ${porcentaje}) / 100); stroke:${color}"></circle>
+				              </svg>
+				              <h4 class='number'>${porcentaje}<span>%</span></h4>
+				            </div>
+                    <h3>Puntuación <br> de <br> usuario</h3>
+                    </section>
                 </div>
             </article>
         </section>

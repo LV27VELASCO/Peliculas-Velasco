@@ -76,7 +76,7 @@ const cargarPeliculas= async()=>{
 				<img class='poster' src='https://image.tmdb.org/t/p/w500/${pelicula.poster_path}'>
 				</div>
 
-				<div class='percent'>
+				<div class='porcentaje1'>
 				<svg>
 				<circle cx='18' cy='18' r='20'  style="stroke:${fondo}"></circle>
 				<circle cx='18' cy='18' r='20' style="stroke-dashoffset:calc(140 - (140 * ${porcentaje}) / 100); stroke:${color}"></circle>

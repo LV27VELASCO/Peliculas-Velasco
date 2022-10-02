@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Reem+Kufi&family=Source+Sans+Pro:wght@400;600&display=swap');
 
+
+:root{
+	---Poppins:'Poppins', sans-serif;
+	---Source:'Source Sans Pro', sans-serif;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -15,10 +21,23 @@ a{
 }
 
 body {
-	font-family: 'Montserrat', sans-serif;
 	background: #e0e0e0;
 	color: #1d1d1d;
 }
+
+.encabezado{
+	background-color: #100a1f;
+	height: 60px;
+	color: #e0e0e0;
+	display: flex;
+}
+
+
+.hero-body{
+	width: 100%;
+	padding: 10px 30px;
+}
+
 
 .contenedor {
 	width: 90%;
@@ -27,13 +46,13 @@ body {
 	grid-template-columns: repeat(
 		auto-fit,
 		minmax(
-			200px,
+			220px,
 			.7fr
 		)
 	);
 	justify-content: center;
 	margin: auto auto;
-	margin-top: 5rem;
+	margin-top: 4rem;
 	margin-bottom: 5rem;
 	gap: 40px;
 }
@@ -72,7 +91,8 @@ body {
 }
 
 
-.contenedor:hover .pelicula:not(:hover) .contenedor-poster .poster{
+
+.contenedor:hover .pelicula:not(:hover) {
 	filter: grayscale(1);
 	
 }
@@ -98,7 +118,7 @@ body {
 	font-weight: 600;
 }
 
-.percent{
+.porcentaje1{
 	position: absolute;
 	display: inline-block;
 	width: 50px;
@@ -107,7 +127,7 @@ body {
 	left: 15px;
 }
 
-.percent svg{
+.porcentaje1 svg{
 	position: relative;
 	width: 47px;
 	height: 47px;
@@ -115,7 +135,7 @@ body {
 	background-color: rgb(6, 28, 47);
 }
 
-.percent svg circle{
+.porcentaje1 svg circle{
 	fill: none;
 	stroke-width: 5;
 	transform: translate(5.5px,5.5px);
@@ -123,13 +143,13 @@ body {
 	stroke-dashoffset: 140;
 }
 
-.percent svg circle:nth-child(1){
+.porcentaje1 svg circle:nth-child(1){
 	stroke-dashoffset: 0;
 }
 
 
 
-.percent .number{
+.porcentaje1 .number{
 	font-size: 13px;
 	font-weight: 600;
 	position: absolute;
@@ -139,7 +159,7 @@ body {
 	transform: translate(-10%,-4%);
 }
 
-.percent .number span{
+.porcentaje1 .number span{
 	font-size: 10px;
 }
 
@@ -229,19 +249,104 @@ body {
 .top-article{
 	width: 100%;
 	display: flex;
-	padding:40px;
+	padding:0px;
 }
 
 .container-description{
 	padding:30px 0px 30px 50px;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
 }
+
+
 
 .container-description header h1{
 	font-size: 2.3rem;
 	font-weight: 400;
 	font-family: 'Source Sans Pro', sans-serif;
 }
+
+.date-genero{
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px;
+	gap: 10px;
+}
+
+.date-genero .date{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 5px;
+	font-size: .95rem;
+	font-family:var(---Source);
+}
+
+.date-genero .genero-duration{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 5px;
+	font-size: .95rem;
+	font-family:var(---Source);
+}
+
+.contenedor-porcentaje2{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap
+}
+
+.contenedor-porcentaje2 h3{
+	padding-left: 5px;
+	font-size: 0.9rem;
+}
+
+.porcentaje2{
+	position: relative;
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+}
+
+.porcentaje2 svg{
+	position: relative;
+	width: 67px;
+	height: 67px;
+	border-radius: 50%;
+	background-color: rgb(6, 28, 47);
+}
+
+.porcentaje2 svg circle{
+	fill: none;
+	stroke-width: 5;
+	transform: translate(5.5px,5.5px);
+	stroke-dasharray: 140;
+	stroke-dashoffset: 140;
+}
+
+.porcentaje2 svg circle:nth-child(1){
+	stroke-dashoffset: 0;
+}
+
+
+
+.porcentaje2 .number{
+	font-size: 20px;
+	font-weight: 600;
+	position: absolute;
+	top: 30%;
+	left: 30%;
+	color: rgb(241, 241, 241);
+	transform: translate(-10%,-4%);
+}
+
+.porcentaje2 .number span{
+	font-size: 10px;
+}
+
 
 
 /* MEDIA */
