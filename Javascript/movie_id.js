@@ -58,7 +58,7 @@ const mostrarPeli = async () => {
                 </div>
 
                 <div class='container-description'>
-                    <header>
+                    <header class='title-description'>
                         <h1>${data.title} (${data.release_date[0]}${data.release_date[1]}${data.release_date[2]}${data.release_date[3]})</h1><span></span>
                         <div class='date-genero'>
                             <span class='date'>${data.release_date} ${pais}</span><div class='genero-duration'>${generos}<span>${horas}h ${minutos}m</span></div>

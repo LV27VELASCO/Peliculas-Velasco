@@ -478,15 +478,31 @@ body {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding:40px 8px;
+		padding:40px 15px;
 	}
 
 	.container-description{
 		text-align: center;
+		padding-right: 0;
 	}
 
-	.seccion-resumen p{
-		text-align: left;
+	.title-description{
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.date-genero{
+		justify-content: center;
+	}
+
+
+	.seccion-porcentaje2{
+		justify-content: center;
+	}
+
+	.seccion-resumen>p{
+		text-align:justify;
 	}
 
 	
