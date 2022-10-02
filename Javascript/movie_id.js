@@ -28,10 +28,10 @@ const mostrarPeli = async () => {
 				let fondo=''
 				
 				if(porcentaje>=70){
-					color='#2ed60c'
-					fondo='#87fa7f'
+					color='#31d7b3'
+					fondo='#245248'
 				}else if(porcentaje<70&&porcentaje>=50){
-					color='#d6740c'
+					color='#d19722'
 					fondo='#fab27f'
 				}else if(porcentaje<50){
 					color='#d6130c'

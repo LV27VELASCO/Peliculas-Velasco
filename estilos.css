@@ -26,10 +26,30 @@ body {
 }
 
 .encabezado{
+	width: 100%;
 	background-color: #100a1f;
-	height: 60px;
-	color: #e0e0e0;
+	padding: 15px 40px;
+	position: sticky;
 	display: flex;
+	justify-content: space-between;
+	top: 0;
+	z-index: 2;
+}
+
+.encabezado>img{
+	width: 220px;
+}
+
+.encabezado .back{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color:rgb(231, 217, 113);
+	width: 30px;
+	height: 30px;
+	background:linear-gradient(90deg,rgb(11, 138, 160),rgb(13, 57, 96));
+	border-radius: 50%;
+	font-size: 1.2rem;
 }
 
 
@@ -192,7 +212,7 @@ body {
 	background: #241744;
 	color: #fff;
 	border-radius: 100px;
-	font-family: 'Montserrat', sans-serif;
+	font-family:var(---Source);
 	font-weight: 600;
 	transition: .3s ease all;
 }
