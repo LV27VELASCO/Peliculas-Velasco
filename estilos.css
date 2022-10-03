@@ -20,10 +20,6 @@ a{
 	color: black;
 }
 
-body {
-	background: #e0e0e0;
-	color: #1d1d1d;
-}
 
 .encabezado{
 	width: 100%;
@@ -265,7 +261,7 @@ body {
 	height: 100%;
 	object-fit: cover;
 	object-position: top;
-	filter: blur(3px) contrast(105%) brightness(65%) saturate(110%) ;
+	filter: blur(3px) contrast(105%) brightness(65%) saturate(110%) hue-rotate(350deg) ;
 }
 
 
@@ -288,7 +284,7 @@ body {
 	flex-direction: column;
 	padding-top:30px;
 	padding-bottom: 30px;
-	padding-right: 8px;
+	padding-right: 15px;
 	gap: 30px;
 }
 
@@ -412,12 +408,13 @@ body {
 }
 
 
+
+
 /* MEDIA */
 
 .contain-nav{
 	display: flex;
 	align-content: center;
-	padding: 10px 0;
 	gap: 20px;
 }
 
@@ -451,20 +448,89 @@ body {
 	width:100%;
 }
 
+/* SECCION INFORMACION PELICULAS */
+/* GRID DATA */
+.grid-data{
+	display: grid;
+	row-gap: 20px;
+	column-gap: 20px;
+	grid-template-columns:  1fr 1fr 1fr;
+	grid-template-areas:
+	 "actores actores informacion"
+	 "videos videos informacion";
+	 padding: 40px 20px;
+}
+
+
+#seccion_pelicula-info{
+	border: 1px solid;
+	grid-area: informacion;
+}
+
+
+
+
+/* ACTORES  */
+
+.section_actores{
+	grid-area: actores;
+}
+
+
+#carrusel-actores{
+	width:100%;
+	display: flex;
+	gap: 10px;
+	overflow: hidden;
+	overflow-x: scroll;
+	padding-bottom: 5px;
+	border-radius: 10px;
+}
+
+.card-actor{
+	width: 160px;
+	height: 290px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 5px 0px grey;
+}
+
+.card-actor>img{
+	width: 100%;
+	height: 200px;
+	border-radius: 10px 10px 0 0;
+}
+
+.card-actor>.info-actor{
+	padding: 5px 5px 10px 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.card-actor>.info-actor>h3{
+	font-size: 1rem;
+	font-family: var(---Source);
+	font-weight: bold;
+}
+
+.card-actor>.info-actor>p{
+	font-family: var(---Source);
+	font-size: 0.9rem;
+}
+
 
 /* TRAILERS */
 
-.section-media{
-	padding: 10px 40px;
+.seccion_media{
+	grid-area: videos;
 }
+
 
 #media{
 	display: flex;
-	width: 70%;
+	width: 100%;
 	height: 260px;
-	overflow-y: hidden;
 	overflow-x: scroll;
-	white-space: nowrap;
 	border-radius: 20px;
 }
 
@@ -491,6 +557,8 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+
+
 
 @media (max-width:768px) {
 

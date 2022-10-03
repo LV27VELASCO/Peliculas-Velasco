@@ -8,6 +8,7 @@ const mostrarPeli = async () => {
       .then((res) => res.json())
       .then((data) => {
         let generos = "";
+        
 
         data.genres.forEach((genero, index) => {
 
@@ -85,8 +86,48 @@ const mostrarPeli = async () => {
             </article>
         </section>
         `;
-        document.getElementById("section-principal").innerHTML = pelicula;
+        document.getElementById("seccion_principal").innerHTML = pelicula;
         console.log(data);
+
+        let estado=''
+        if(data.status==='Released'){
+          estado='Estrenado'
+        }else if(data.status==='Post Production'){
+          estado='Post Produccion'
+        }else if(data.status==='Planned'){
+          estado='Planeado'
+        }
+
+        let seccion_peliculas_info=`
+        <header>
+        <div>
+        <h4>Titulo Original</h4>
+        <p>${data.original_title}</p>
+        </div>
+        <div>
+        <h4>Estado</h4>
+        <p>${estado}</p>
+        </div>
+        <div>
+        <h4>Idioma Original</h4>
+        <p>${data.original_language}</p>
+        </div>
+        <div>
+        <h4>Presupuesto</h4>
+        <p>${data.budget}</p>
+        </div>
+        <div>
+        <h4>Ingresos</h4>
+        <p>${data.revenue}</p>
+        </div>
+        <div>
+        <h4>Palabras clave</h4>
+        <p>${data.revenue}</p>
+        </div>
+        </header>`
+
+
+        document.getElementById('seccion_pelicula-info').innerHTML=seccion_peliculas_info
       });
   } catch (error) {
     console.log(error);
@@ -103,8 +144,24 @@ const reparto= async()=>{
     .then(res=>res.json())
     .then(reparto=>{
 
-      let creditos=``
+      let actoresPrincipales=''
+      let creditos=''
       console.log(reparto)
+
+    reparto.cast.forEach(actor=>{
+      actoresPrincipales+=`
+      <div class='contain_card-actor'>
+        <div class='card-actor'>
+            <img src='https://image.tmdb.org/t/p/w500/${actor.profile_path}'>
+          <div class='info-actor'>
+            <h3>${actor.name}</h3>
+            <p>${actor.character}</p>
+          </div>
+        </div>
+      </div>
+      `
+    })
+
     reparto.crew.forEach(data=>{
       
       if(data.job==='Director'||data.job==='Novel'||data.job==='Writer'||data.job==='Screenplay'){
@@ -116,7 +173,7 @@ const reparto= async()=>{
       }
     })
 
-
+      document.getElementById('carrusel-actores').innerHTML=actoresPrincipales
       document.getElementById('creditos').innerHTML=creditos
     })
   } catch (error) {
