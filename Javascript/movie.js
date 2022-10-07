@@ -53,7 +53,8 @@ const cargarPeliculas= async()=>{
 			DATOS.results.forEach(pelicula=>{
 
 				let porcentaje=(pelicula.vote_average).toFixed(1)[0]+(pelicula.vote_average).toFixed(1)[2]
-
+				let divPorcentaje=+porcentaje>0?`${porcentaje}<span>%</span>`:'NR'
+				console.log(divPorcentaje)
 				let color=''
 				let fondo=''
 				
@@ -63,9 +64,12 @@ const cargarPeliculas= async()=>{
 				}else if(porcentaje<70&&porcentaje>=50){
 					color='#d6740c'
 					fondo='#fab27f'
-				}else if(porcentaje<50){
+				}else if(porcentaje<50&&porcentaje>0){
 					color='#d6130c'
 					fondo='#fa7f7f'
+				}else{
+					color='#575656';
+					fondo='#575656';
 				}
 
 				
@@ -81,7 +85,7 @@ const cargarPeliculas= async()=>{
 				<circle cx='18' cy='18' r='20'  style="stroke:${fondo}"></circle>
 				<circle cx='18' cy='18' r='20' style="stroke-dashoffset:calc(140 - (140 * ${porcentaje}) / 100); stroke:${color}"></circle>
 				</svg>
-				<h4 class='number'>${porcentaje}<span>%</span></h4>
+				<h4 class='number'>${divPorcentaje}</h4>
 				</div>
 				<span class='fecha'>${pelicula.release_date}</span>
 				<div class='contenedor-info'>
